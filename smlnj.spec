@@ -5,31 +5,31 @@ Summary:        Standard ML of New Jersey
 
 Group:          Development/Languages
 License:        MIT
-URL:            http://www.smlnj.org/
+URL:            https://www.smlnj.org/
                 
-Source0:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/config.tgz
-Source1:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/cm.tgz
-Source2:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/compiler.tgz
-Source3:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/runtime.tgz
-Source4:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/system.tgz
-Source5:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/MLRISC.tgz
-Source6:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/smlnj-lib.tgz
-Source7:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/ckit.tgz
-Source8:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/nlffi.tgz
-Source9:        http://smlnj.cs.uchicago.edu/dist/working/%{version}/cml.tgz
-Source10:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/eXene.tgz
-Source11:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/ml-lex.tgz
-Source12:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/ml-yacc.tgz
-Source13:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/ml-burg.tgz
-Source14:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/ml-lpt.tgz
-Source15:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/pgraph.tgz
-Source16:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/trace-debug-profile.tgz
-Source17:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/heap2asm.tgz
-Source18:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/smlnj-c.tgz
-Source19:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/boot.x86-unix.tgz
-Source20:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/boot.ppc-unix.tgz
-Source21:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/boot.sparc-unix.tgz
-Source22:       http://smlnj.cs.uchicago.edu/dist/working/%{version}/%{version}-README.html
+Source0:        https://www.smlnj.org/dist/working/%{version}/config.tgz
+Source1:        https://www.smlnj.org/dist/working/%{version}/cm.tgz
+Source2:        https://www.smlnj.org/dist/working/%{version}/compiler.tgz
+Source3:        https://www.smlnj.org/dist/working/%{version}/runtime.tgz
+Source4:        https://www.smlnj.org/dist/working/%{version}/system.tgz
+Source5:        https://www.smlnj.org/dist/working/%{version}/MLRISC.tgz
+Source6:        https://www.smlnj.org/dist/working/%{version}/smlnj-lib.tgz
+Source7:        https://www.smlnj.org/dist/working/%{version}/ckit.tgz
+Source8:        https://www.smlnj.org/dist/working/%{version}/nlffi.tgz
+Source9:        https://www.smlnj.org/dist/working/%{version}/cml.tgz
+Source10:       https://www.smlnj.org/dist/working/%{version}/eXene.tgz
+Source11:       https://www.smlnj.org/dist/working/%{version}/ml-lex.tgz
+Source12:       https://www.smlnj.org/dist/working/%{version}/ml-yacc.tgz
+Source13:       https://www.smlnj.org/dist/working/%{version}/ml-burg.tgz
+Source14:       https://www.smlnj.org/dist/working/%{version}/ml-lpt.tgz
+Source15:       https://www.smlnj.org/dist/working/%{version}/pgraph.tgz
+Source16:       https://www.smlnj.org/dist/working/%{version}/trace-debug-profile.tgz
+Source17:       https://www.smlnj.org/dist/working/%{version}/heap2asm.tgz
+Source18:       https://www.smlnj.org/dist/working/%{version}/smlnj-c.tgz
+Source19:       https://www.smlnj.org/dist/working/%{version}/boot.x86-unix.tgz
+Source20:       https://www.smlnj.org/dist/working/%{version}/boot.ppc-unix.tgz
+Source21:       https://www.smlnj.org/dist/working/%{version}/boot.sparc-unix.tgz
+Source22:       https://www.smlnj.org/dist/working/%{version}/%{version}-README.html
 
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildRequires: /usr/include/gnu/stubs-32.h, /lib/libgcc_s.so.1
