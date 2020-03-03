@@ -1,5 +1,5 @@
 Name:           smlnj
-Version:        110.82
+Version:        110.96
 Release:        1%{?dist}
 Summary:        Standard ML of New Jersey
 
@@ -29,10 +29,11 @@ Source18:       https://www.smlnj.org/dist/working/%{version}/smlnj-c.tgz
 Source19:       https://www.smlnj.org/dist/working/%{version}/boot.x86-unix.tgz
 Source20:       https://www.smlnj.org/dist/working/%{version}/boot.ppc-unix.tgz
 Source21:       https://www.smlnj.org/dist/working/%{version}/boot.sparc-unix.tgz
-Source22:       https://www.smlnj.org/dist/working/%{version}/%{version}-README.html
+Source22:       https://www.smlnj.org/dist/working/%{version}/boot.amd64-unix.tgz
+Source23:       https://www.smlnj.org/dist/working/%{version}/%{version}-README.html
 
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-BuildRequires: /usr/include/gnu/stubs-32.h, /lib/libgcc_s.so.1
+BuildRequires: gcc /usr/include/gnu/stubs-64.h, /lib64/libgcc_s.so.1
 
 %global smlnj_bootstrap 1
 %if !%{smlnj_bootstrap}
@@ -75,6 +76,7 @@ cp %{SOURCE20} .
 cp %{SOURCE21} .
 %endif
 cp %{SOURCE22} .
+cp %{SOURCE23} .
 
 
 
@@ -117,14 +119,15 @@ request cml-lib
 request eXene
 request mlrisc
 request ckit
-request ml-nlffi-lib
-request ml-nlffigen
 request mlrisc-tools
 request nowhere
 request heap2asm
 EOF
+# Doesn't work on 64 bit
+#request ml-nlffi-lib
+#request ml-nlffigen
 
-URLGETTER=true ./config/install.sh
+CC=gcc URLGETTER=true ./config/install.sh -64
 
 # This can't be done in the prep section because
 # the file is in a tarball.
@@ -162,7 +165,8 @@ chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-build
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-burg
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-lex
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-makedepend 
-chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-nlffigen 
+# Doesn't work on 64 bit
+#chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-nlffigen 
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-ulex 
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/ml-yacc
 chmod 0755 %{buildroot}%{_libdir}/smlnj/bin/nowhere 
@@ -182,7 +186,7 @@ done
 # Move docs into a separate directory.
 mkdir -p docs/{cml,ml-lex,ml-lpt,MLRISC,ml-yacc,smlnj-lib}
 mv cml/{doc,CHANGES,README,TODO} docs/cml
-mv ml-lex/{README,*.doc,*.tex} docs/ml-lex
+mv ml-lex/{README,*.doc,doc} docs/ml-lex
 mv ml-lpt/{doc,README,TODO} docs/ml-lpt
 mv MLRISC/Doc docs/MLRISC
 chmod 0644 docs/MLRISC/Doc/html/mltex2html
@@ -202,6 +206,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Mar 03 2020 Matt Rice <ratmice@gmail.com> - 110.96-1
+- build for 110.96 compiler for 64 bit, without mlnlffi.
+
 * Tue Apr 10 2018 Matt Rice <ratmice@gmail.com> - 110.82-1
 - Upstream released a new version.
 
